@@ -1,0 +1,56 @@
+using System;
+
+namespace zad5PPK
+{
+    class main
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Prosty kalkulator");
+            while (true)
+            {
+                double a = 0;
+                double b = 0;
+                double wynik = 0;  
+                Console.WriteLine("Podaj liczbe: a");
+                a = double.Parse(Console.ReadLine());
+                Console.WriteLine("Podaj liczbe: b");
+                b = double.Parse(Console.ReadLine());
+                Console.WriteLine("Twoje liczby to: " + a + " oraz " + b + ". Co chcesz z nimi zrobic?");
+                Console.WriteLine("1 - dodac");
+                Console.WriteLine("2 - odjac");
+                Console.WriteLine("3 - mnozyc");
+                Console.WriteLine("4 - dzielic");
+                string opcja = Console.ReadLine();
+                wynik = kalkulator.wykonaj(a, b, opcja);
+                Console.WriteLine("Wynik:" + wynik);
+            }
+        }
+    }
+    class kalkulator
+    {
+        public static double wykonaj(double a, double b, string opcja)
+        {
+            double wynik = double.NaN;
+            switch (opcja)
+            {
+                case "1":
+                    wynik = a + b;
+                    break;
+                case "2":
+                    wynik = a - b;
+                    break;
+                case "3":
+                    wynik = a * b;
+                    break;
+                case "4":
+                    if (b == 0)
+                        Console.WriteLine("Podzielenie dowolnej liczby a przez zero daje wynik rowny 0.");
+                    else
+                        wynik = a / b;
+                    break;
+            }
+            return wynik;
+        }
+    }  
+}
